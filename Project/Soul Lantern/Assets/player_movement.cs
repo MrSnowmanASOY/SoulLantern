@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour 
 {
-    public float movementSpeed = 1.0f;
+    public float movementSpeed = 0.25f;
     float horizontalInput;
     float verticalInput;
     float xaxis = 0f;
     float zaxis = 0f;
-    float yaxis = 1f;
+    float yaxis = 0.5f;
 
     void Update () 
     {
@@ -15,8 +15,8 @@ public class player_movement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        xaxis += horizontalInput;
-        zaxis += verticalInput;
+        xaxis += horizontalInput * movementSpeed;
+        zaxis += verticalInput * movementSpeed;
 
         //Update objects position
         transform.position = new Vector3(xaxis, yaxis, zaxis);
